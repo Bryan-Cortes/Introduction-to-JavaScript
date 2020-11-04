@@ -18,6 +18,12 @@ Do the following:
    HINT: no function required
 */
 
+let votingAge = 21;
+
+if(votingAge >= 18){
+  true
+} else
+  false
 
 
 /*
@@ -30,12 +36,18 @@ Do the following:
 
    HINT: no function required
 */
+let variable1 = "rainy";
+let variable2 = "sunny";
+
+if(variable2 === "sunny"){
+  variable1 = "rainbow";
+} else {
+  variable1 = "cloudy";
+}
+console.log(variable1);
 
 
-
-
-
-/*
+/*å
 Task 1c - Convert Strings to Numbers
 
 Do the following:   
@@ -45,8 +57,9 @@ Do the following:
 
    HINT: look up the Number method
 */
+let numberString = "1999"
 
-
+console.log(Number(numberString));
 
 
 /*
@@ -61,7 +74,7 @@ Do the following:
 function multiply(a,b){
     return a*b
   }
-console.log(multiply(3,2));
+console.log(multiply(7,3));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -74,10 +87,11 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
+function dogYears(humanAge){
     /*add your code here*/
+    return humanAge * 7
 }
-
+console.log(dogYears(2));
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -97,7 +111,7 @@ Use the hungryDog function and feeding requirements below to do the following:
      up to 5 lbs - 5% of their body weight
      6 - 10 lbs - 4% of their body weight 
      11 - 15 lbs - 3% of their body weight 
-     > 15lbs - 2% of their body weight 
+     > 15lbs - 2% of their body weight             
 
   Puppies less than 1 year
      2 - 4 months 10% of their body weight
@@ -107,9 +121,33 @@ Use the hungryDog function and feeding requirements below to do the following:
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
 */  
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
-  }
+// if(weight<=15 && age>=1){
+//   return weight * .03
+// }
+// console.log(hungryDog(15,1));
+
+function hungryDog(weight,age){
+                                      // Adult Dogs
+  if(weight <= 5 && age>=1){
+    return weight * .05
+  } else if(weight <= 10 && age>=1){
+    return weight * .04
+  } else if(weight <= 15 && age>=1){
+    return weight * .03
+  } else if(weight >= 15 && age>=1){
+    return weight * .02
+  }      
+                               // Puppies
+  if (age <= 4/12 || age <= 3/12 || age <= 2/12){
+      return weight * .10
+
+  } else if (age <= 5/12 || age <= 6/12 || age <= 7/12){
+    return weight * .05
+
+  } else if (age <= 8/12 || age <= 9/12 || age <= 10/12 || age <= 11/12){
+    return weight * .04
+  }                                             
+}
 
 
 
@@ -132,10 +170,46 @@ Use the game function below to do the following:
   HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 */
 
+let computer= Math.random();
+let user = Math.random();
+
+
 function game(user, computer){
-    /*add your code here*/
-}
-  
+
+    if(computer < 0.34){
+      computer = "rock";
+    } else if (computer <=0.67){
+      computer = "paper";
+    } else {
+      computer = "scissors"
+    }
+
+    if (
+      user === "paper" && computer === "scissors" || 
+      user === "rock" && computer === "paper" || 
+      user === "scissors" && computer === "rock"){
+
+      return "you lose!"
+    }
+
+    else if (
+      user === "scissors" && computer === "paper" || 
+      user === "paper" && computer === "rock" || 
+      user === "rock" && computer === "scissors"){
+
+      return "you win!"
+    }
+    
+    else if (
+      user === "scissors" && computer === "scissors" || 
+      user === "rock" && computer === "rock" || 
+      user === "paper" && computer === "paper"){
+
+      return "it's a tie"
+    }
+
+}     
+
   
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -149,10 +223,10 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
-  }
+function miles(KMnum){
+    return KMnum * 0.621371
 
+  }
 
 
 //Task 5b - Feet to CM
@@ -163,8 +237,8 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
+function feet(CMnum){
+    return CMnum / 30.48
   }
  
 
@@ -179,9 +253,12 @@ Using the annoyingSong function below do the following:
       "(number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
-  }
+function annoyingSong(startingNum){
+  for(let i = startingNum; i >= 1; i--){
+    return `${i} bottles of soda on the wall, ${i} bottles of soda, take one down pass it around ${i -1} bottles of soda on the wall`}  
+  
+}
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -199,10 +276,23 @@ Using the grade function below do the following:
    below 60 = F
 */
   
-function grade(/*add your code here*/){
-    /*add your code here*/
-  }
-  
+function grade(score){
+
+    if(score >=90){
+      return "you got a A"
+    } else if (score >=80){
+      return "you got a B"
+    }else if (score >=70){
+      return "you got a C"
+    } else if (score >=60){
+      return "you got a D"
+    }else if (score <=59){
+      return "you got a F"
+    }
+    
+    
+}
+
   
   
   
